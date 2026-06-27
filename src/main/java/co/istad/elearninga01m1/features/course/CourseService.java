@@ -1,0 +1,10 @@
+package co.istad.elearninga01m1.features.course;
+
+import co.istad.elearninga01m1.features.course.dto.CourseResponse;
+import co.istad.elearninga01m1.features.course.dto.CreateCourseRequest;
+import org.springframework.security.oauth2.jwt.Jwt;
+
+public interface CourseService {
+
+    CourseResponse createCourse(CreateCourseRequest createCourseRequest);
+}

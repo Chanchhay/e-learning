@@ -1,6 +1,7 @@
 package co.istad.elearninga01m1.features.category;
 
 
+import co.istad.elearninga01m1.features.config.audit.BasedAuditingEntity;
 import co.istad.elearninga01m1.features.course.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Table(name = "categories")
-public class Category {
+public class Category extends BasedAuditingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

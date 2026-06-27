@@ -1,10 +1,23 @@
 package co.istad.elearninga01m1.features.comment;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import co.istad.elearninga01m1.features.config.audit.BasedAuditingEntity;
+import co.istad.elearninga01m1.features.video.Video;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public class Comment {
+import java.time.LocalDateTime;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "comments")
+public class Comment extends BasedAuditingEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String text;
     private Boolean isDeleted;
@@ -12,4 +25,9 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "parent_id")
     private Comment parentComment;
+
+    @ManyToOne
+    private Video video;
+
+    private LocalDateTime createdAt;
 }

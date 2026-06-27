@@ -1,0 +1,86 @@
+package co.istad.elearninga01m1.features.course.mapper;
+
+import co.istad.elearninga01m1.features.course.Course;
+import co.istad.elearninga01m1.features.course.dto.CourseResponse;
+import co.istad.elearninga01m1.features.course.dto.CreateCourseRequest;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-06-27T19:45:30+0700",
+    comments = "version: 1.6.3, compiler: IncrementalProcessingEnvironment from gradle-java-compiler-worker-9.5.1.jar, environment: Java 25.0.3 (Arch Linux)"
+)
+@Component
+public class CourseMapperImpl implements CourseMapper {
+
+    @Override
+    public Course mapCreateCourseRequestToCourse(CreateCourseRequest createCourseRequest) {
+        if ( createCourseRequest == null ) {
+            return null;
+        }
+
+        Course course = new Course();
+
+        course.setSlug( createCourseRequest.slug() );
+        course.setKeyword( createCourseRequest.keyword() );
+        course.setTitle( createCourseRequest.title() );
+        course.setDescription( createCourseRequest.description() );
+        course.setThumbnail( createCourseRequest.thumbnail() );
+        course.setTotalHours( createCourseRequest.totalHours() );
+        course.setLevel( createCourseRequest.level() );
+        course.setPrice( createCourseRequest.price() );
+        course.setDiscountPercent( createCourseRequest.discountPercent() );
+
+        return course;
+    }
+
+    @Override
+    public CourseResponse mapCourseToCourseResponse(Course course) {
+        if ( course == null ) {
+            return null;
+        }
+
+        Integer id = null;
+        String slug = null;
+        String keyword = null;
+        String title = null;
+        String description = null;
+        String thumbnail = null;
+        Float starRating = null;
+        Float totalHours = null;
+        BigDecimal price = null;
+        Float discountPercent = null;
+        LocalDate createdDate = null;
+        Boolean isPublished = null;
+
+        id = course.getId();
+        slug = course.getSlug();
+        keyword = course.getKeyword();
+        title = course.getTitle();
+        description = course.getDescription();
+        thumbnail = course.getThumbnail();
+        starRating = course.getStarRating();
+        totalHours = course.getTotalHours();
+        price = course.getPrice();
+        discountPercent = course.getDiscountPercent();
+        if ( course.getCreatedDate() != null ) {
+            createdDate = course.getCreatedDate().toLocalDate();
+        }
+        isPublished = course.getIsPublished();
+
+        Integer ratingCount = null;
+        String levels = null;
+        BigDecimal finalPrice = null;
+        LocalDate updatedAt = null;
+        Integer categoryId = null;
+        String categoryName = null;
+        Boolean isDelete = null;
+
+        CourseResponse courseResponse = new CourseResponse( id, slug, keyword, title, description, thumbnail, starRating, ratingCount, totalHours, levels, price, discountPercent, finalPrice, createdDate, updatedAt, categoryId, categoryName, isDelete, isPublished );
+
+        return courseResponse;
+    }
+}
